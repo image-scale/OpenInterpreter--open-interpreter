@@ -27,12 +27,26 @@
 ## Task 3: Python Code Execution
 
 ### Acceptance Criteria
-- [ ] Create PythonExecutor class that manages a Jupyter kernel
-- [ ] Start kernel on first code execution
-- [ ] Execute code and capture stdout output
-- [ ] Execute code and capture stderr output
-- [ ] Capture display data (images, HTML) from execution
+- [x] Create PythonExecutor class that manages a Jupyter kernel
+- [x] Start kernel on first code execution
+- [x] Execute code and capture stdout output
+- [x] Execute code and capture stderr output
+- [x] Capture display data (images, HTML) from execution
+- [x] Stream output incrementally as it's produced
+- [x] Yield results in LMC format with type="console", format="output"
+- [x] Support stopping running code
+- [x] Support terminating the kernel
+
+## Task 4: Shell Code Execution
+
+### Acceptance Criteria
+- [ ] Create ShellExecutor class that manages a subprocess
+- [ ] Start shell process on first code execution
+- [ ] Execute shell commands and capture stdout
+- [ ] Capture stderr output
+- [ ] Support multi-line scripts
+- [ ] Detect when execution completes via end marker
 - [ ] Stream output incrementally as it's produced
 - [ ] Yield results in LMC format with type="console", format="output"
-- [ ] Support stopping running code
-- [ ] Support terminating the kernel
+- [ ] Support stopping running commands
+- [ ] Support terminating the shell process

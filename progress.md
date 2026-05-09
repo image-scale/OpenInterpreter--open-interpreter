@@ -13,3 +13,10 @@
 **Commit**: Add LLM communication support that connects the agent to language models via LiteLLM
 **Acceptance**: 8/8 criteria met
 **Verification**: tests FAIL on previous state (ImportError), PASS on current state
+
+## Round 3
+**Task**: Task 3 — Add Python code execution via Jupyter kernel
+**Files created**: codeagent/executors/__init__.py, codeagent/executors/python_executor.py, codeagent/executors/shell_executor.py, tests/test_python_executor.py
+**Commit**: Add Python code execution using a Jupyter kernel that runs code and streams output
+**Acceptance**: 9/9 criteria met
+**Verification**: tests FAIL on previous state (ImportError), PASS on current state
