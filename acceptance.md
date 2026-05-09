@@ -40,13 +40,26 @@
 ## Task 4: Shell Code Execution
 
 ### Acceptance Criteria
-- [ ] Create ShellExecutor class that manages a subprocess
-- [ ] Start shell process on first code execution
-- [ ] Execute shell commands and capture stdout
-- [ ] Capture stderr output
-- [ ] Support multi-line scripts
-- [ ] Detect when execution completes via end marker
-- [ ] Stream output incrementally as it's produced
-- [ ] Yield results in LMC format with type="console", format="output"
-- [ ] Support stopping running commands
-- [ ] Support terminating the shell process
+- [x] Create ShellExecutor class that manages a subprocess
+- [x] Start shell process on first code execution
+- [x] Execute shell commands and capture stdout
+- [x] Capture stderr output
+- [x] Support multi-line scripts
+- [x] Detect when execution completes via end marker
+- [x] Stream output incrementally as it's produced
+- [x] Yield results in LMC format with type="console", format="output"
+- [x] Support stopping running commands
+- [x] Support terminating the shell process
+
+## Task 5: Respond Loop
+
+### Acceptance Criteria
+- [ ] Create respond function that orchestrates the LLM-code-output loop
+- [ ] Send messages to LLM and yield response chunks
+- [ ] Detect when LLM response includes code blocks
+- [ ] Execute detected code using appropriate executor (Python or Shell)
+- [ ] Capture execution output and add to messages
+- [ ] Feed output back to LLM for continuation
+- [ ] Continue loop until LLM responds without code
+- [ ] Support auto_run mode that skips confirmation
+- [ ] Truncate long outputs to max_output setting

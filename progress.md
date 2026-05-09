@@ -20,3 +20,11 @@
 **Commit**: Add Python code execution using a Jupyter kernel that runs code and streams output
 **Acceptance**: 9/9 criteria met
 **Verification**: tests FAIL on previous state (ImportError), PASS on current state
+
+## Round 4
+**Task**: Task 4 — Add Shell code execution via subprocess
+**Files modified**: codeagent/executors/shell_executor.py
+**Files created**: tests/test_shell_executor.py
+**Commit**: Add Shell code execution using a subprocess that runs shell commands and streams output
+**Acceptance**: 10/10 criteria met
+**Verification**: tests FAIL on previous state (AttributeError), PASS on current state

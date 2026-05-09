@@ -6,6 +6,7 @@ import getpass
 import platform
 
 from .llm import LLMClient
+from .respond import respond
 
 
 def get_default_system_message():
@@ -100,9 +101,10 @@ class CodeAgent:
             self._add_message(message)
             self._last_messages_count = len(self.messages)
 
-        # For now, yield nothing - LLM integration comes in Task 2
-        return
-        yield  # Make this a generator
+        if not self.messages:
+            return
+
+        yield from respond(self)
 
     def _add_message(self, message):
         """
