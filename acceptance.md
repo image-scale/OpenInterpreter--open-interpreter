@@ -15,11 +15,24 @@
 ## Task 2: LLM Communication
 
 ### Acceptance Criteria
-- [ ] Create LLMClient class that wraps LiteLLM for API calls
-- [ ] Convert LMC format messages to OpenAI format for API requests
-- [ ] Support streaming responses from LLM
-- [ ] Define tool schema for code execution with language and code parameters
-- [ ] Parse tool calls from LLM response to detect code blocks
-- [ ] Yield message chunks with type="message" for regular text responses
-- [ ] Yield code chunks with type="code" and format=language when tool is called
-- [ ] Handle partial JSON parsing for streaming tool arguments
+- [x] Create LLMClient class that wraps LiteLLM for API calls
+- [x] Convert LMC format messages to OpenAI format for API requests
+- [x] Support streaming responses from LLM
+- [x] Define tool schema for code execution with language and code parameters
+- [x] Parse tool calls from LLM response to detect code blocks
+- [x] Yield message chunks with type="message" for regular text responses
+- [x] Yield code chunks with type="code" and format=language when tool is called
+- [x] Handle partial JSON parsing for streaming tool arguments
+
+## Task 3: Python Code Execution
+
+### Acceptance Criteria
+- [ ] Create PythonExecutor class that manages a Jupyter kernel
+- [ ] Start kernel on first code execution
+- [ ] Execute code and capture stdout output
+- [ ] Execute code and capture stderr output
+- [ ] Capture display data (images, HTML) from execution
+- [ ] Stream output incrementally as it's produced
+- [ ] Yield results in LMC format with type="console", format="output"
+- [ ] Support stopping running code
+- [ ] Support terminating the kernel
