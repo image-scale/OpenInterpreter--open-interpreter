@@ -4,9 +4,9 @@
 Build the interpreter from the user-facing API inward. Start with the main Interpreter class that users interact with, then add LLM communication, then code execution. Each feature delivers working functionality that can be tested independently.
 
 ## Tasks
-- [>] Task 1: Create the main Interpreter class with chat functionality, message handling, and configurable settings. Users should be able to create an interpreter instance, configure it (model, auto_run, verbose, etc.), and call chat() to start a conversation. Messages are stored in the interpreter.messages list.
+- [x] Task 1: Create the main Interpreter class with chat functionality, message handling, and configurable settings. Users should be able to create an interpreter instance, configure it (model, auto_run, verbose, etc.), and call chat() to start a conversation. Messages are stored in the interpreter.messages list.
 
-- [ ] Task 2: Implement LLM communication using LiteLLM that converts messages to OpenAI format, sends requests to the LLM, and streams responses. The LLM component should support tool calling to detect when the model wants to execute code, returning structured chunks with type (message/code) and content.
+- [>] Task 2: Implement LLM communication using LiteLLM that converts messages to OpenAI format, sends requests to the LLM, and streams responses. The LLM component should support tool calling to detect when the model wants to execute code, returning structured chunks with type (message/code) and content.
 
 - [ ] Task 3: Add Python code execution via Jupyter kernel that runs code and yields streaming output. The executor should start a kernel, execute code blocks, capture stdout/stderr/display data, and return results in LMC format with type=console.
 

@@ -5,6 +5,8 @@ The main CodeAgent class that orchestrates LLM communication and code execution.
 import getpass
 import platform
 
+from .llm import LLMClient
+
 
 def get_default_system_message():
     """Generate the default system message with user context."""
@@ -52,6 +54,9 @@ class CodeAgent:
         self.messages = messages if messages is not None else []
         self._responding = False
         self._last_messages_count = 0
+
+        # LLM client
+        self.llm = LLMClient(self)
 
     def chat(self, message=None, display=True, stream=False):
         """
