@@ -54,12 +54,23 @@
 ## Task 5: Respond Loop
 
 ### Acceptance Criteria
-- [ ] Create respond function that orchestrates the LLM-code-output loop
-- [ ] Send messages to LLM and yield response chunks
-- [ ] Detect when LLM response includes code blocks
-- [ ] Execute detected code using appropriate executor (Python or Shell)
-- [ ] Capture execution output and add to messages
-- [ ] Feed output back to LLM for continuation
-- [ ] Continue loop until LLM responds without code
-- [ ] Support auto_run mode that skips confirmation
-- [ ] Truncate long outputs to max_output setting
+- [x] Create respond function that orchestrates the LLM-code-output loop
+- [x] Send messages to LLM and yield response chunks
+- [x] Detect when LLM response includes code blocks
+- [x] Execute detected code using appropriate executor (Python or Shell)
+- [x] Capture execution output and add to messages
+- [x] Feed output back to LLM for continuation
+- [x] Continue loop until LLM responds without code
+- [x] Support auto_run mode that skips confirmation
+- [x] Truncate long outputs to max_output setting
+
+## Task 6: Conversation History
+
+### Acceptance Criteria
+- [x] Add conversation_history setting to enable/disable saving
+- [x] Save messages to JSON file after each chat
+- [x] Generate filename from first message content and date
+- [x] Load conversation from JSON file
+- [x] Create history directory if it doesn't exist
+- [x] Sanitize filename to remove invalid characters
+- [x] Support custom conversation_history_path

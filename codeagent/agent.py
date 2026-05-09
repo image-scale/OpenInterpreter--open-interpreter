@@ -3,10 +3,22 @@ The main CodeAgent class that orchestrates LLM communication and code execution.
 """
 
 import getpass
+import os
 import platform
 
 from .llm import LLMClient
 from .respond import respond
+from .history import (
+    generate_conversation_filename,
+    save_conversation,
+    load_conversation,
+)
+
+
+def get_default_history_path():
+    """Get the default path for conversation history storage."""
+    home = os.path.expanduser("~")
+    return os.path.join(home, ".codeagent", "conversations")
 
 
 def get_default_system_message():
@@ -37,6 +49,9 @@ class CodeAgent:
         messages=None,
         offline=False,
         temperature=0.0,
+        conversation_history=False,
+        conversation_history_path=None,
+        conversation_filename=None,
     ):
         # LLM settings
         self.model = model
@@ -55,6 +70,11 @@ class CodeAgent:
         self.messages = messages if messages is not None else []
         self._responding = False
         self._last_messages_count = 0
+
+        # Conversation history settings
+        self.conversation_history = conversation_history
+        self.conversation_history_path = conversation_history_path or get_default_history_path()
+        self.conversation_filename = conversation_filename
 
         # LLM client
         self.llm = LLMClient(self)
@@ -106,6 +126,9 @@ class CodeAgent:
 
         yield from respond(self)
 
+        if self.conversation_history:
+            self._save_history()
+
     def _add_message(self, message):
         """
         Add a message to the conversation history.
@@ -125,6 +148,23 @@ class CodeAgent:
         else:
             raise TypeError(f"Message must be str, dict, or list, not {type(message)}")
 
+    def _save_history(self):
+        """Save conversation to file."""
+        if not self.messages:
+            return
+
+        if not self.conversation_filename:
+            first_content = self.messages[0].get("content", "conversation")
+            self.conversation_filename = generate_conversation_filename(first_content)
+
+        filepath = os.path.join(self.conversation_history_path, self.conversation_filename)
+        save_conversation(self.messages, filepath)
+
+    def load_history(self, filepath):
+        """Load conversation from a file."""
+        self.messages = load_conversation(filepath)
+        self.conversation_filename = os.path.basename(filepath)
+
     def reset(self):
         """
         Clear the conversation history and reset state.
@@ -132,6 +172,7 @@ class CodeAgent:
         self.messages = []
         self._last_messages_count = 0
         self._responding = False
+        self.conversation_filename = None
 
     @property
     def responding(self):

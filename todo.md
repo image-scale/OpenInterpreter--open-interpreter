@@ -12,8 +12,8 @@ Build the interpreter from the user-facing API inward. Start with the main Inter
 
 - [x] Task 4: Add Shell code execution via subprocess that spawns a persistent shell process and streams output. It should handle both single commands and multi-line scripts, detecting when execution completes.
 
-- [>] Task 5: Implement the respond loop that orchestrates the conversation - sending messages to LLM, detecting code blocks, executing code, capturing output, and feeding results back to the LLM until no more code needs to run.
+- [x] Task 5: Implement the respond loop that orchestrates the conversation - sending messages to LLM, detecting code blocks, executing code, capturing output, and feeding results back to the LLM until no more code needs to run.
 
-- [ ] Task 6: Add conversation history persistence that saves conversations to JSON files and allows loading previous conversations. Include filename generation from first message content and date.
+- [x] Task 6: Add conversation history persistence that saves conversations to JSON files and allows loading previous conversations. Include filename generation from first message content and date.
 
 - [ ] Task 7: Create a terminal interface that provides an interactive REPL for chatting with the interpreter, with rich markdown display, code block highlighting, and user input handling.
