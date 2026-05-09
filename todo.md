@@ -16,4 +16,4 @@ Build the interpreter from the user-facing API inward. Start with the main Inter
 
 - [x] Task 6: Add conversation history persistence that saves conversations to JSON files and allows loading previous conversations. Include filename generation from first message content and date.
 
-- [ ] Task 7: Create a terminal interface that provides an interactive REPL for chatting with the interpreter, with rich markdown display, code block highlighting, and user input handling.
+- [x] Task 7: Create a terminal interface that provides an interactive REPL for chatting with the interpreter, with rich markdown display, code block highlighting, and user input handling.
